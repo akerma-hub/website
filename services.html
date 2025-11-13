@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | Akiivisuals</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-blue: #1E3A8A;
+            --accent-purple: #9333EA;
+            --accent-green: #10B981;
+            --text-dark: #1F2937;
+            --bg-light: #F9FAFB;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-dark);
+            background: var(--bg-light);
+            line-height: 1.6;
+        }
+
+        /* === Header === */
+        #main-header {
+            background: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            color: var(--primary-blue);
+            font-weight: 900;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            color: var(--text-dark);
+            font-weight: 700;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--accent-purple);
+        }
+
+        .cta-button {
+            background-color: var(--accent-green);
+            color: #fff !important;
+            padding: 8px 15px;
+            border-radius: 5px;
+            margin-left: 20px;
+        }
+
+        /* === Hero Section === */
+        #services-hero {
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-purple));
+            color: white;
+            text-align: center;
+            padding: 120px 20px;
+        }
+
+        #services-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        #services-hero p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* === Services Section === */
+        .services-section {
+            padding: 80px 0;
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-heading {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 50px;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border-top: 5px solid var(--accent-purple);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .service-card i {
+            font-size: 3rem;
+            color: var(--accent-green);
+            margin-bottom: 15px;
+        }
+
+        .service-card h3 {
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        /* === CTA Section === */
+        .cta-section {
+            background: var(--accent-green);
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .cta-section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: white;
+            color: var(--accent-green);
+            font-weight: 700;
+            padding: 12px 25px;
+            border-radius: 5px;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn-primary:hover {
+            background: #f2f2f2;
+            transform: translateY(-2px);
+        }
+
+        /* === Footer === */
+        #main-footer {
+            background: var(--text-dark);
+            color: #E5E7EB;
+            padding: 20px 0;
+            font-size: 0.9rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .social-links a {
+            color: var(--accent-green);
+            margin-left: 15px;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        /* === Animation Classes === */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* === Transition Overlay Animation === */
+.transition-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--primary-blue), var(--accent-purple));
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  opacity: 0;
+  transform: scale(1.1);
+  transition: opacity 0.5s ease, transform 0.8s ease;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.transition-overlay.active {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: all;
+}
+
+.transition-text h2 {
+  font-size: 2rem;
+  font-weight: 900;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+.transition-text p {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #e0e0e0;
+  animation: fadeText 1.5s infinite alternate;
+}
+
+@keyframes fadeText {
+  from { opacity: 0.6; }
+  to { opacity: 1; }
+}
+
+    </style>
+</head>
+
+<body>
+
+    <header id="main-header">
+        <nav>
+            <h1 class="logo">Akiivisuals</h1>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="protofoloi.html">Portfolio</a></li>
+                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="contact.html" class="cta-button">Start Your Project</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="services-hero">
+        <h1>Our Services</h1>
+        <p>Precision. Passion. Performance — discover how Akiivisuals turns your ideas into visuals that captivate and connect.</p>
+    </section>
+
+    <!-- Services Cards -->
+    <section class="services-section fade-in">
+        <h2 class="section-heading">What We Offer</h2>
+        <div class="service-grid">
+            <div class="service-card">
+                <i>🎬</i>
+                <h3>Video Editing</h3>
+                <p>High-quality edits that enhance storytelling. From YouTube videos to brand promos — we craft seamless visual flows.</p>
+            </div>
+
+            <div class="service-card">
+                <i>🎨</i>
+                <h3>Graphic Design</h3>
+                <p>Thumbnails, logos, and social media creatives that speak your brand’s language and stand out instantly.</p>
+            </div>
+
+            <div class="service-card">
+                <i>🧾</i>
+                <h3>Documentation</h3>
+                <p>Structured, clean, and professional documentation for all kinds of projects — technical or creative.</p>
+            </div>
+
+            <div class="service-card">
+                <i>📈</i>
+                <h3>Brand Strategy</h3>
+                <p>We help define your visual identity and build consistency across your digital presence for maximum impact.</p>
+            </div>
+
+            <div class="service-card">
+                <i>📷</i>
+                <h3>Photo Enhancement</h3>
+                <p>Make your images stand out with color correction, retouching, and composition refinement.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section fade-in">
+        <h2>Ready to Bring Your Vision to Life?</h2>
+        <a href="contact.html" class="btn-primary">Start Your Project</a>
+    </section>
+
+    <footer id="main-footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Akiivisuals. All Rights Reserved.</p>
+            <div class="social-links">
+                <a href="#">YT</a> | <a href="#">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll fade-in animation
+        const fadeElements = document.querySelectorAll('.fade-in');
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.2 });
+
+        fadeElements.forEach(el => observer.observe(el));
+    </script>
+
+    <script src="transition.js"></script>
+
+
+</body>
+</html>
